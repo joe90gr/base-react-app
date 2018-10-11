@@ -4,7 +4,7 @@
   "description": "A production class generic base web application",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "lerna run test",
     "commit": "git-cz"
   },
   "keywords": [
@@ -29,7 +29,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "echo ======Lintify======",
-      "pre-push": "echo =======Run Tests=======",
+      "pre-push": "yarn test",
       "commit-msg": "commitlint -e $GIT_PARAMS"
     }
   },

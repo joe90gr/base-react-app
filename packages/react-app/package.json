@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha --opts mocha.opts"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -26,6 +27,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "sinon": "^6.3.5",
     "sinon-chai": "^3.2.0",
     "webpack": "^4.20.2"
