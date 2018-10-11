@@ -1,0 +1,41 @@
+{
+  "name": "base-react-app",
+  "version": "1.0.0",
+  "description": "A production class generic base web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "commit": "git-cz"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "react-router",
+    "nodejs"
+  ],
+  "author": "Giuseppe Ruggieri",
+  "license": "ISC",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "commitizen": "^3.0.2",
+    "husky": "^1.1.2",
+    "lerna": "^3.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo ======Lintify======",
+      "pre-push": "echo =======Run Tests=======",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "config": {
+    "comitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
