@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "lerna run test",
+    "lintify": "lerna run lintify",
     "commit": "git-cz"
   },
   "keywords": [
@@ -28,7 +29,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo ======Lintify======",
+      "pre-commit": "yarn lintify",
       "pre-push": "yarn test",
       "commit-msg": "commitlint -e $GIT_PARAMS"
     }
