@@ -2910,9 +2910,9 @@ escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-eslint-config-joe-ninety@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/eslint-config-joe-ninety/-/eslint-config-joe-ninety-1.1.2.tgz#e0714dced3e76a52825a7764e73d3eb377f6d30a"
+eslint-config-joe-ninety@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-joe-ninety/-/eslint-config-joe-ninety-1.1.4.tgz#e9622586960f7c845c7401700241f83b6a7631ab"
   dependencies:
     save-dev "^2.0.0"
 
