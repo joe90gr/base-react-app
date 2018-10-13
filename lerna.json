@@ -1,6 +1,9 @@
 {
+  "version": "independent",
   "packages": [
     "packages/*"
   ],
-  "version": "independent"
+  "init": {
+    "exact": true
+  }
 }
