@@ -2,6 +2,6 @@
 --colors
 --bail
 --reporter nyan
---compilers js:babel-register
+--compilers js:@babel/register
 --require mocha-bootstrap.js
 test/**/*.spec.js
