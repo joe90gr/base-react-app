@@ -27,6 +27,8 @@ app.use((req, res, next) => {
 	next(createError(404));
 });
 
+// The function signiture line, eslint is turned off due to needed unused "next" arg
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
 	const { message, status, stack } = err;
 	const props = { title: 'Error', message, status, stack };
