@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 
 import createError from 'http-errors';
 import express from 'express';
@@ -19,13 +20,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use(router.get('/', (req, res) => {
-	res.send(`<!doctype html>\n ${ ReactDom.renderToString(<Index title="Express"/>) }`);
+app.use(router.get('*', (req, res) => {
+	res.send(`<!doctype html>\n ${ ReactDom.renderToString(
+		<StaticRouter location = { req.url } context={{ title: 'Express' }}><Index/></StaticRouter>
+	) }`);
 }));
 
-app.use((req, res, next) => {
-	next(createError(404));
-});
+app.use((req, res, next) => next(createError(404)));
 
 // The function signiture line, eslint is turned off due to needed unused "next" arg
 // eslint-disable-next-line no-unused-vars

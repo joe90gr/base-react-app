@@ -1,20 +1,14 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import { string } from 'prop-types';
+import { HomePage, AboutPage, PageNotFound } from './Pages/';
 
-const Index = ({ title }) => (
-	<html>
-		<head>
-			<title>{ title }</title>
-			<link rel="stylesheet" href="/stylesheets/style.css" />
-		</head>
-		<body>
-			<h1>{ title }</h1>
-			<p>Welcome to { title }</p>
-		</body>
-	</html>
+const Index = () => (
+	<Switch>
+		<Route exact path="/" render={ HomePage } />
+		<Route path="/path1" render={ AboutPage } />
+		<Route path="*" render={ PageNotFound } />
+	</Switch>
 );
-
-Index.propTypes = { title: string };
 
 export default Index;
