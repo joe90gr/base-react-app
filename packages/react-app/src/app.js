@@ -21,9 +21,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(router.get('*', (req, res) => {
-	res.send(`<!doctype html>\n ${ ReactDom.renderToString(
-		<StaticRouter location = { req.url } context={{ title: 'Express' }}><Index/></StaticRouter>
-	) }`);
+	res.send(`<!doctype html>\n <html>${ ReactDom.renderToString(
+		<StaticRouter location = { req.url } context={{}}>
+			<Index/>
+		</StaticRouter>
+	) }</html>`);
 }));
 
 app.use((req, res, next) => next(createError(404)));

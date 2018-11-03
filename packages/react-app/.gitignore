@@ -1,4 +1,6 @@
 node_modules
 dist
 
+public/js
+
 yarn-error.log

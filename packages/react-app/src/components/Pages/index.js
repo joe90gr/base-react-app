@@ -2,11 +2,11 @@ import React from 'react';
 
 import DocumentRoot from '../DocumentRoot';
 
-const homePageContent = ({ staticContext: { title } }) => [
+const homePageContent = ({ title }) => [
 	<h1>{ title }</h1>,
 	<p>Welcome to { title }</p>
 ];
-const aboutPageContent = ({ staticContext: { title } }) => <div>{ title }</div>;
+const aboutPageContent = ({ title }) => <div>{ title }</div>;
 const pageNotFoundContent = () => <div>Page Not Found</div>;
 
 export const HomePage = props => <DocumentRoot { ...props } title="Home Page" component={ homePageContent } />;
