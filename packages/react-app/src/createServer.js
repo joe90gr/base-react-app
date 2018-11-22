@@ -4,10 +4,7 @@ import http from 'http';
 
 const debug = _debug('react-app:server');
 const port = normalizePort(process.env.PORT || '3000');
-
-app.set('port', port);
-
-const server = http.createServer(app);
+const server = http.createServer(app.set('port', port));
 
 server.listen(port);
 server.on('error', onError);
