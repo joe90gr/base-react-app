@@ -3,24 +3,20 @@ import { Switch, Route } from 'react-router-dom';
 
 import { config } from '../config';
 
-import DocumentRoot from './DocumentRoot';
-
-const Index = () => (
+const Routes = () => (
 	<Switch>
 		{ config.map((props) => {
 			const { path, exact, Layout, Page } = props;
 
 			return (
 				<Route exact={ exact } path={ path }>
-					<DocumentRoot { ...props }>
-						<Layout>
-							<Page { ...props }/>
-						</Layout>
-					</DocumentRoot>
+					<Layout>
+						<Page { ...props }/>
+					</Layout>
 				</Route>
 			);
 		}) }
 	</Switch>
 );
 
-export default Index;
+export default Routes;

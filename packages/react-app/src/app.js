@@ -8,8 +8,11 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import Index from './components/Index';
+import Routes from './components/Routes';
 import ErrorPage from './components/ErrorPage';
+import { documentRoot } from './documentRoot';
+
+import { Helmet } from 'react-helmet';
 
 const app = express();
 const router = express.Router();
@@ -21,11 +24,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(router.get('*', (req, res) => {
-	res.send(`<!doctype html>\n <html>${ ReactDom.renderToString(
+	const content = ReactDom.renderToString(
 		<StaticRouter location = { req.url } context={{}}>
-			<Index/>
+			<Routes/>
 		</StaticRouter>
-	) }</html>`);
+	);
+
+	const headerInfo = Helmet.renderStatic();
+
+	res.send(documentRoot({ content, headerInfo }));
 }));
 
 app.use((req, res, next) => next(createError(404)));

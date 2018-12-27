@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import Index from './components/Index';
+import Routes from './components/Routes';
 
 ReactDOM.render(
 	<BrowserRouter>
-		<Index/>
-	</BrowserRouter>, document.getElementsByTagName('html')[0]
+		<Routes/>
+	</BrowserRouter>, document.getElementsByClassName('react-root')[0]
 );
