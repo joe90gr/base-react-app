@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.layout-left,
+.layout-fullscreen {
+  padding: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center-center {
+  margin: 0 auto;
+  display: block;
+}
+
+.button-link {
+  width: 100px;
+  height: 20px;
+  border: 2px solid blue;
+  border-radius: 4px;
 }

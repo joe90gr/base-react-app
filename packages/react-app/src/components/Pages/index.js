@@ -1,14 +1,3 @@
-import React from 'react';
-
-import DocumentRoot from '../DocumentRoot';
-
-const homePageContent = ({ title }) => [
-	<h1>{ title }</h1>,
-	<p>Welcome to { title }</p>
-];
-const aboutPageContent = ({ title }) => <div>{ title }</div>;
-const pageNotFoundContent = () => <div>Page Not Found</div>;
-
-export const HomePage = props => <DocumentRoot { ...props } title="Home Page" component={ homePageContent } />;
-export const AboutPage = props => <DocumentRoot { ...props } title="About Page" component={ aboutPageContent } />;
-export const PageNotFound = props => <DocumentRoot { ...props } title="Page Not Found" component={ pageNotFoundContent } />;
+export { Home } from './Home/Home';
+export { About } from './About/About';
+export { PageNotFound } from './PageNotFound/PageNotFound';

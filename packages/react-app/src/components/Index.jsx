@@ -1,13 +1,25 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { HomePage, AboutPage, PageNotFound } from './Pages/';
+import { config } from '../config';
+
+import DocumentRoot from './DocumentRoot';
 
 const Index = () => (
 	<Switch>
-		<Route exact path="/" render={ HomePage } />
-		<Route path="/path1" render={ AboutPage } />
-		<Route path="*" render={ PageNotFound } />
+		{ config.map((props) => {
+			const { path, exact, Layout, Page } = props;
+
+			return (
+				<Route exact={ exact } path={ path }>
+					<DocumentRoot { ...props }>
+						<Layout>
+							<Page { ...props }/>
+						</Layout>
+					</DocumentRoot>
+				</Route>
+			);
+		}) }
 	</Switch>
 );
 
