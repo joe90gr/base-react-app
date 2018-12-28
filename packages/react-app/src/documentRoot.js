@@ -1,4 +1,4 @@
-export const documentRoot = ({ content, headerInfo }) => (`
+export const documentRoot = ({ content, headerInfo, isScriptEnabled }) => (`
 	<!doctype html>
 	<html>
 		<head>
@@ -7,7 +7,7 @@ export const documentRoot = ({ content, headerInfo }) => (`
 		</head>
 		<body>
 			<div class="react-root">${ content }</div>
-			<script type="text/javascript" src="/js/bundles/bundle.js"></script>
+			${ isScriptEnabled ? '<script type="text/javascript" src="/js/bundles/bundle.js"></script>' : '' }
 		</body>
 	</html>
 `);

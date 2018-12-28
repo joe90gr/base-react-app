@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 import Routes from './components/Routes';
-import ErrorPage from './components/ErrorPage';
+import { ErrorPage } from './components/Pages/';
 import { documentRoot } from './documentRoot';
 
 import { Helmet } from 'react-helmet';
@@ -32,7 +32,7 @@ app.use(router.get('*', (req, res) => {
 
 	const headerInfo = Helmet.renderStatic();
 
-	res.send(documentRoot({ content, headerInfo }));
+	res.send(documentRoot({ content, headerInfo, isScriptEnabled: true }));
 }));
 
 app.use((req, res, next) => next(createError(404)));
@@ -41,10 +41,12 @@ app.use((req, res, next) => next(createError(404)));
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
 	const { message, status, stack } = err;
-	const props = { title: 'Error', message, status, stack };
+	const props = { message, status, stack };
+	const content = ReactDom.renderToString(<ErrorPage { ...props } />);
+	const headerInfo = Helmet.renderStatic();
 
 	res.status(err.status || 500);
-	res.send(`<!doctype html>\n ${ ReactDom.renderToStaticMarkup(<ErrorPage { ...props } />) }`);
+	res.send(documentRoot({ content, headerInfo, isScriptEnabled: false }));
 });
 
 export default app;
